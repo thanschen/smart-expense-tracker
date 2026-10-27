@@ -1,0 +1,269 @@
+/* Smart Expense Tracker — CSS styling only (Prompt 3) */
+
+/* 1. Base layout and typography */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px;
+    background-color: #f3f6fb;
+    color: #1f2937;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0 0 24px;
+    color: #17345b;
+    text-align: center;
+    font-size: 2rem;
+}
+
+h2 {
+    margin: 0 0 16px;
+    color: #17345b;
+    font-size: 1.25rem;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #dce4ee;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(27, 47, 73, 0.05);
+}
+
+/* 2. Expense entry form */
+#expenseForm {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+#expenseForm label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+#expenseForm input,
+#expenseForm select {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #aebed1;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: #1f2937;
+    font: inherit;
+}
+
+#expenseForm input:focus,
+#expenseForm select:focus {
+    outline: 2px solid #2d67a5;
+    outline-offset: 2px;
+}
+
+/* 3. Add, VIEW and DELETE buttons */
+button {
+    min-height: 40px;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 7px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: 3px solid #2d67a5;
+    outline-offset: 2px;
+}
+
+#addExpenseButton {
+    grid-column: 1 / -1;
+    justify-self: start;
+    background-color: #196b50;
+    color: #ffffff;
+}
+
+#addExpenseButton:hover {
+    background-color: #10543d;
+}
+
+/* These row buttons will be inserted by JavaScript later. */
+#expenseTable td:nth-child(6) button {
+    background-color: #205f9a;
+    color: #ffffff;
+}
+
+#expenseTable td:nth-child(6) button:hover {
+    background-color: #184b7a;
+}
+
+#expenseTable td:nth-child(7) button {
+    background-color: #b33939;
+    color: #ffffff;
+}
+
+#expenseTable td:nth-child(7) button:hover {
+    background-color: #8e2929;
+}
+
+/* 4. Validation and success messages */
+#message {
+    margin: 0 0 20px;
+    padding: 10px 14px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+#message:empty {
+    display: none;
+}
+
+#message.error {
+    background-color: #fff0f0;
+    color: #9c2424;
+}
+
+#message.success {
+    background-color: #e7f6ed;
+    color: #17633b;
+}
+
+/* 5. Expense table and checkbox column */
+#expenseTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#expenseTable th,
+#expenseTable td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e1e6ee;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#expenseTable th {
+    background-color: #eaf0f7;
+    color: #17345b;
+    font-size: 0.9rem;
+}
+
+#expenseTable tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+#expenseTable th:first-child,
+#expenseTable td:first-child {
+    width: 80px;
+    text-align: center;
+}
+
+#expenseTable input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #205f9a;
+}
+
+#expenseTable td[colspan="7"] {
+    padding: 20px;
+    color: #5f6d7e;
+    text-align: center;
+}
+
+/* 6. Total and selected expense details */
+#totalAmount {
+    margin: 0;
+    color: #196b50;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+#expenseDetails {
+    padding: 14px;
+    background-color: #f8fafc;
+    border: 1px solid #e1e6ee;
+    border-radius: 7px;
+}
+
+#expenseDetails p {
+    margin: 0;
+}
+
+/* 7. Small-screen layout */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.65rem;
+    }
+
+    section {
+        padding: 16px;
+    }
+
+    #expenseForm {
+        grid-template-columns: 1fr;
+    }
+
+    #addExpenseButton {
+        width: 100%;
+    }
+
+    #expenseTable {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #expenseTable th,
+    #expenseTable td {
+        padding: 10px 8px;
+    }
+}
+
+/* FIX: Display field validation errors in red with larger text. */
+#expenseForm p[role="alert"] {
+    color: #dc2626;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0 10px;
+}
+
+/* FIX: Highlight general validation errors. */
+#message.error {
+    color: #dc2626;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* NEW: Style the CLOSE button in the expense detail section. */
+#closeExpenseDetails {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #6b7280;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#closeExpenseDetails:hover {
+    background-color: #4b5563;
+}

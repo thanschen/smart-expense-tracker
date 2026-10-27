@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Smart Expense Tracker</h1>
+
+        <!-- Expense entry form -->
+        <section aria-labelledby="addExpenseHeading">
+            <h2 id="addExpenseHeading">Add an Expense</h2>
+            <form id="expenseForm" novalidate>
+                <div>
+                    <!-- CHANGED: Mark the name as required. -->
+                    <label for="expenseName">Expense Name <span aria-hidden="true">*</span></label>
+                    <!-- NEW: Show the name validation message above the field. -->
+                    <p id="expenseNameError" role="alert" hidden></p>
+                    <input type="text" id="expenseName" name="name" placeholder="e.g., Lunch"
+                        aria-describedby="expenseNameError" required>
+
+                </div>
+
+                <div>
+                    <!-- CHANGED: Mark the amount as required. -->
+                    <label for="expenseAmount">Amount ($) <span aria-hidden="true">*</span></label>
+                    <!-- NEW: Show the amount validation message above the field. -->
+                    <p id="expenseAmountError" role="alert" hidden></p>
+                    <input type="number" id="expenseAmount" name="amount" step="0.01" placeholder="e.g., 15.50"
+                        aria-describedby="expenseAmountError" required>
+
+                </div>
+
+                <div>
+                    <!-- CHANGED: Mark the category as required. -->
+                    <label for="expenseCategory">Category <span aria-hidden="true">*</span></label>
+                    <!-- NEW: Show the category validation message above the field. -->
+                    <p id="expenseCategoryError" role="alert" hidden></p>
+                    <select id="expenseCategory" name="category" aria-describedby="expenseCategoryError" required>
+                        <option value="">Select a category</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="addExpenseButton">Add Expense</button>
+            </form>
+        </section>
+
+        <!-- Validation and success messages will appear here -->
+        <p id="message" role="status" aria-live="polite"></p>
+
+        <!-- One row will be created for each expense by JavaScript later -->
+        <section aria-labelledby="expenseListHeading">
+            <h2 id="expenseListHeading">Expense List</h2>
+            <table id="expenseTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">VIEW</th>
+                        <th scope="col">DELETE</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseTableBody">
+                    <tr>
+                        <td colspan="7">No expenses found.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Running total -->
+        <section aria-labelledby="totalHeading">
+            <h2 id="totalHeading">Total Expenses</h2>
+            <p id="totalAmount">$0.00</p>
+        </section>
+
+        <!-- Details for the expense selected with its VIEW button -->
+        <section aria-labelledby="detailsHeading">
+            <h2 id="detailsHeading">Selected Expense Details</h2>
+            <div id="expenseDetails" aria-live="polite">
+                <p>Select VIEW on an expense to see its details.</p>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
