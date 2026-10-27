@@ -36,3 +36,29 @@ A JavaScript and HTML expense tracker for adding, viewing, and deleting expense 
 ## Data Storage
 
 Expenses are stored **in memory** as JavaScript objects. This description does not imply permanent storage across page reloads.
+
+### Smart Expense Tracker — Main Page
+
+![Smart Expense Tracker Main Page](screenshots/smart-expense-tracker-main.png)
+
+*Figure 1. Smart Expense Tracker — Main Page*
+
+### Smart Expense Tracker — Decimal Precision Edge Case
+
+![Two Decimal Place Validation](screenshots/smart-expense-tracker-decimal-edge-case.png)
+
+*Figure 2. Smart Expense Tracker — Two-Decimal-Place Limit (Edge Case)*
+
+### Smart Expense Tracker — Wrong ID Edge Case
+
+![Wrong ID Validation](screenshots/smart-expense-tracker-wrong-ID-edge-case.png)
+
+*Figure 3. Smart Expense Tracker — Wrong ID (Edge Case)*
+
+-Testing an Invalid Expense ID Using the JavaScript Debugger Since the Smart Expense Tracker does not allow users to manually enter an invalid expense ID, this test was performed using the JavaScript Debugger.A breakpoint was set to pause execution, allowing the expense ID to be modified to a nonexistent value.The purpose of this test was to verify that the application displays "Expense not found." without crashing or affecting existing expense records.
+
+### Smart Expense Tracker — Checkbox Validation Before Deletion Test ( Minimal Fix Approach)
+
+![Delete Without Checkbox Error](screenshots/smart-expense-tracker-checkbox-error.png)
+
+*Figure 4. Smart Expense Tracker — Error Message When Deleting Without Selecting a Checkbox*
