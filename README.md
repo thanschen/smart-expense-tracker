@@ -14,7 +14,19 @@ A JavaScript and HTML expense tracker for adding, viewing, and deleting expense 
 - **Safe text display:** Use `textContent` for user-entered names to prevent HTML injection.
 - **Responsive layout:** Ensure sections display appropriately on desktop and mobile screens using CSS.
 
-## Error Handling
+## Validation Feature
+
+- Display validation errors immediately above the corresponding input fields within the Add Expense section.
+- Validate inputs on the client side without requiring form submission.
+- Show errors when a user leaves a required field empty or enters an invalid value.
+- Validate text and amount fields during input or when leaving the field, and category when its selection changes.
+- Display an asterisk (*) beside required field labels.
+- Automatically clear error messages when the input becomes valid.
+- Preserve existing validation when the form is submitted.
+- Validate the required fields before saving an expense.
+- Keep existing valid expenses unchanged when an operation fails.
+
+## Error Handling Feature
 
 - Handle empty expense names.
 - Reject invalid, zero, negative, or non-finite amounts.
